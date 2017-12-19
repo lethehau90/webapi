@@ -30,14 +30,18 @@ namespace TeduShop.Web.Controllers
         [Route("getlistpaging")]
         [HttpGet]
         [Permission(Action = "Read", Function = "USER")]
-        public HttpResponseMessage GetListPaging(HttpRequestMessage request, int page, int pageSize, string filter = null)
+        public HttpResponseMessage GetListPaging(HttpRequestMessage request, int page, int pageSize, string filter)
         {
             return CreateHttpResponse(request, () =>
             {
                 HttpResponseMessage response = null;
                 int totalRow = 0;
                 var model = AppUserManager.Users;
-                IEnumerable<AppUserViewModel> modelVm = Mapper.Map<IEnumerable<AppUser>, IEnumerable<AppUserViewModel>>(model);
+                if (!string.IsNullOrEmpty(filter))
+                {
+                    model = model.Where(x => x.FullName.Contains(filter));
+                }
+                    IEnumerable<AppUserViewModel> modelVm = Mapper.Map<IEnumerable<AppUser>, IEnumerable<AppUserViewModel>>(model);
 
                 PaginationSet<AppUserViewModel> pagedSet = new PaginationSet<AppUserViewModel>()
                 {

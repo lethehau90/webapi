@@ -177,7 +177,7 @@ namespace TeduShop.Web.Controllers
                 try
                 {
                     _permissionService.SaveChange();
-                    return request.CreateResponse(HttpStatusCode.OK, "Lưu quyền thành cống");
+                    return request.CreateResponse(HttpStatusCode.OK, "Lưu quyền thành công");
                 }
                 catch (Exception ex)
                 {
