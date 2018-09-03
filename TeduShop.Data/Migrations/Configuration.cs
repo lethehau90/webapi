@@ -72,33 +72,33 @@
             }
         }
 
-        private void CreateConfigTitle(TeduShopDbContext context)
-        {
-            if (!context.SystemConfigs.Any(x => x.Code == "HomeTitle"))
+            private void CreateConfigTitle(TeduShopDbContext context)
             {
-                context.SystemConfigs.Add(new SystemConfig()
+                if (!context.SystemConfigs.Any(x => x.Code == "HomeTitle"))
                 {
-                    Code = "HomeTitle",
-                    ValueString = "Trang chủ TeduShop",
-                });
-            }
-            if (!context.SystemConfigs.Any(x => x.Code == "HomeMetaKeyword"))
-            {
-                context.SystemConfigs.Add(new SystemConfig()
+                    context.SystemConfigs.Add(new SystemConfig()
+                    {
+                        Code = "HomeTitle",
+                        ValueString = "Trang chủ TeduShop",
+                    });
+                }
+                if (!context.SystemConfigs.Any(x => x.Code == "HomeMetaKeyword"))
                 {
-                    Code = "HomeMetaKeyword",
-                    ValueString = "Trang chủ TeduShop",
-                });
-            }
-            if (!context.SystemConfigs.Any(x => x.Code == "HomeMetaDescription"))
-            {
-                context.SystemConfigs.Add(new SystemConfig()
+                    context.SystemConfigs.Add(new SystemConfig()
+                    {
+                        Code = "HomeMetaKeyword",
+                        ValueString = "Trang chủ TeduShop",
+                    });
+                }
+                if (!context.SystemConfigs.Any(x => x.Code == "HomeMetaDescription"))
                 {
-                    Code = "HomeMetaDescription",
-                    ValueString = "Trang chủ TeduShop",
-                });
+                    context.SystemConfigs.Add(new SystemConfig()
+                    {
+                        Code = "HomeMetaDescription",
+                        ValueString = "Trang chủ TeduShop",
+                    });
+                }
             }
-        }
 
         private void CreateUser(TeduShopDbContext context)
         {

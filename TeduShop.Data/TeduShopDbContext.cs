@@ -32,7 +32,6 @@ namespace TeduShop.Data
         public DbSet<Error> Errors { set; get; }
         public DbSet<ContactDetail> ContactDetails { set; get; }
         public DbSet<Feedback> Feedbacks { set; get; }
-
         public DbSet<Function> Functions { set; get; }
         public DbSet<Permission> Permissions { set; get; }
         public DbSet<AppRole> AppRoles { set; get; }
